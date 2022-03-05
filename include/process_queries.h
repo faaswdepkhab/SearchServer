@@ -50,9 +50,9 @@ private:
         BasicIterator operator++(int) noexcept;
         
     private:
-        int segment = 0;
-        int offset = 0;
-        int size = 0;
+        size_t segment = 0;
+        size_t offset = 0;
+        size_t size = 0;
         const std::vector<Document> *data;
     };
 

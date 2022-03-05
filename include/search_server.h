@@ -200,7 +200,7 @@ private:
     };
     
     template<class ExecutionPolicy>
-    Query ParseQuery(ExecutionPolicy&& policy, std::string_view text) const {
+    Query ParseQuery(ExecutionPolicy&& /*policy*/, std::string_view text) const {
         using namespace std;
         
         Query query;

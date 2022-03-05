@@ -8,11 +8,11 @@ void RemoveDuplicates(SearchServer &search_server) {
     set<set<string>> unique_docs;
     vector<int> docs_to_delete;
     for (const int id : search_server) {
-        const map<string, double> word_freqs = search_server.GetWordFrequencies(id);
+        const map<string_view, double> word_freqs = search_server.GetWordFrequencies(id);
         set<string> words;
         transform(word_freqs.cbegin(), word_freqs.cend(), inserter(words, words.begin()),
-                  [](const pair<string, double> &word) {
-            return word.first;
+                  [](const pair<string_view, double> &word) {
+            return string(word.first);
         });
 
         if (unique_docs.count(words) == 0) {

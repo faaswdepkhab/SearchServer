@@ -12,7 +12,7 @@ template <typename T, typename U>
 void AssertEqualImpl(const T& t, const U& u, const std::string& t_str, const std::string& u_str, const std::string& file,
                      const std::string& func, unsigned line, const std::string& hint) {
     using namespace std::string_literals;
-    if (t != u) {
+    if (static_cast<size_t>(t) != static_cast<size_t>(u)) {
         std::cerr << std::boolalpha;
         std::cerr << file << "("s << line << "): "s << func << ": "s;
         std::cerr << "ASSERT_EQUAL("s << t_str << ", "s << u_str << ") failed: "s;
